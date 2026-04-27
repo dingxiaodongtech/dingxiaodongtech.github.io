@@ -116,7 +116,7 @@
         }
         .equation-overlay {
             position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; z-index: 9999; 
+            display: flex; flex-direction: column; align-items: center; z-index: 10002; 
             pointer-events: none; white-space: nowrap;
             background: rgba(255, 255, 255, 0.95); padding: 8px 16px 6px 16px; 
             border-radius: 20px; backdrop-filter: blur(8px); 
@@ -125,6 +125,7 @@
         .equation-overlay.floating { animation: equationFlyUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
         .math-sign { font-size: 20px; font-weight: 900; color: #94a3b8; margin: 0 4px; }
         .equation-mnemonic { margin-top: 4px; color: #10b981; font-size: 15px; font-weight: 900; letter-spacing: 1px; }
+        .eq-card { position: relative; z-index: 10003; }
 
         @keyframes scoreFloat {
             0% { transform: translate(-50%, 0) scale(0.5); opacity: 0; }
@@ -168,11 +169,11 @@
             </div>
         </div>
 
-        <div id="board" class="flex-1 relative w-full mt-2 flex justify-center items-center"></div>
+        <div id="equation-container" class="absolute bottom-[70px] left-0 right-0 h-[60px] pointer-events-none z-[1000]"></div>
 
-        <div class="h-[25vh] min-h-[160px] w-full flex flex-col items-center justify-end pb-[env(safe-area-inset-bottom)] pb-4 z-20 relative box-border">
-            
-            <div id="equation-container" class="w-full h-[60px] relative pointer-events-none mb-1"></div>
+        <div id="board" class="flex-1 relative w-full mt-2 flex justify-center items-center z-[1]"></div>
+
+        <div class="h-[25vh] min-h-[160px] w-full flex flex-col items-center justify-end pb-[env(safe-area-inset-bottom)] pb-4 z-[20] relative box-border">
             
             <div class="w-[94%] flex justify-end space-x-3 mb-2 px-1 pointer-events-auto z-30">
                 <button id="btn-wildcard" onclick="triggerWildcard()" class="relative w-[12vw] h-[12vw] max-w-[48px] max-h-[48px] bg-amber-50 rounded-xl border-2 border-amber-200 border-bottom-[4px] border-b-amber-400 flex items-center justify-center shadow-md active:translate-y-1 active:border-b-2 transition-all opacity-60">
@@ -650,7 +651,7 @@
                     const clone = document.createElement('div');
 
                     clone.className = `fixed tile-base border-bottom-width-[2px] tier-${matchedTiers[i]}`;
-                    clone.style.left = startRect.left + 'px'; clone.style.top = startRect.top + 'px'; clone.style.width = startRect.width + 'px'; clone.style.height = startRect.height + 'px'; clone.style.zIndex = '10000'; clone.style.transition = 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+                    clone.style.left = startRect.left + 'px'; clone.style.top = startRect.top + 'px'; clone.style.width = startRect.width + 'px'; clone.style.height = startRect.height + 'px'; clone.style.zIndex = '10004'; clone.style.transition = 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
                     clone.innerHTML = `<span class="num-base slot-uniform">${matchedValues[i]}</span>`;
                     document.body.appendChild(clone); clones.push(clone);
 
