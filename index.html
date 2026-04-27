@@ -1,17 +1,182 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的数学游戏</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 数学互动课件合集</title>
+    <style>
+        :root {
+            --bg: #F5F7FC;
+            --text: #0A0A0A;
+            --text-secondary: #4a4f5a;
+            --text-muted: #7a7f8a;
+            --accent: #FA7EA0;
+            --surface: #ffffff;
+            --border: #eef0f5;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+            --radius: 18px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 40px 24px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .header .label {
+            display: inline-block;
+            background: rgba(250, 126, 160, 0.12);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #0A0A0A;
+            margin-bottom: 12px;
+        }
+        .header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .card .icon {
+            font-size: 32px;
+        }
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .card .tag {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.3px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            color: var(--text-muted);
+            font-size: 13px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+    </style>
 </head>
 <body>
-  <h1>🎮 数学小游戏合集</h1>
-  <ul>
-    <li><a href="乘法口诀图鉴.html">乘法口诀图鉴</a></li>
-    <li><a href="九九乘法了个羊.html">九九乘法了个羊</a></li>
-    <li><a href="交换律对对碰.html">交换律对对碰</a></li>
-    <li><a href="余数大富翁.html">余数大富翁</a></li>
-  </ul>
+    <div class="container">
+        <div class="header">
+            <div class="label"> </div>
+            <h1>数学互动课件合集</h1>
+            <p>一套“可以动手玩”的小学数学学习工具。每个课件围绕一个核心知识点，通过游戏化交互让孩子在操作中建立数学直觉。</p>
+        </div>
+
+        <div class="grid">
+            <!-- 巧数图形 -->
+            <a href="巧数图形.html" class="card">
+                <div class="icon">📐</div>
+                <h3>巧数图形</h3>
+                <p>在线段、长方形、三角形中“划出”组合图形，自主发现计数规律，从枚举到公式。</p>
+                <span class="tag">图形计数</span>
+            </a>
+
+            <!-- 空间建筑师 -->
+            <a href="还原几何体.html" class="card">
+                <div class="icon">🏗️</div>
+                <h3>空间建筑师</h3>
+                <p>根据三视图在九宫格上搭建方块，五阶递进训练空间想象与投影推理能力。</p>
+                <span class="tag">三视图</span>
+            </a>
+
+            <!-- 余数大富翁 -->
+            <a href="余数大富翁.html" class="card">
+                <div class="icon">🎲</div>
+                <h3>余数大富翁</h3>
+                <p>掷骰子走格子，在棋盘游戏中理解“余数必须比除数小”的底层规则。</p>
+                <span class="tag">有余除法</span>
+            </a>
+
+            <!-- 交换律对对碰 -->
+            <a href="交换律对对碰.html" class="card">
+                <div class="icon">🃏</div>
+                <h3>交换律对对碰</h3>
+                <p>翻牌配对游戏，在匹配中感受“交换律不改变结果”的算理。</p>
+                <span class="tag">运算定律</span>
+            </a>
+
+            <!-- 九九乘法了个羊 -->
+            <a href="九九乘法了个羊.html" class="card">
+                <div class="icon">✖️</div>
+                <h3>九九乘法了个羊</h3>
+                <p>乘法口诀的趣味练习，把机械记忆变成闯关挑战。</p>
+                <span class="tag">乘法口诀</span>
+            </a>
+
+            <!-- 乘法口诀图鉴 -->
+            <a href="乘法口诀图鉴.html" class="card">
+                <div class="icon">📊</div>
+                <h3>乘法口诀图鉴</h3>
+                <p>可视化乘法表，帮助发现乘法中的对称与规律。</p>
+                <span class="tag">乘法表</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>海豚 AI 学 · 让数学可以“动手玩”</p>
+        </div>
+    </div>
 </body>
 </html>
